@@ -11,7 +11,7 @@ Sekitar **1 dari 7 pesanan Olist berakhir dengan ulasan buruk** (bintang 1–2).
 
 **Dashboard (Looker Studio):** https://datastudio.google.com/reporting/40d02c18-082d-4e9a-a3c7-81aa37028754
 
-**Notebook:** [`Notebook/Alpha - FINPRO - Analisis Ulasan Buruk dan Keterlambatan Olist.ipynb`](<Notebook/Alpha - FINPRO - Analisis Ulasan Buruk dan Keterlambatan Olist.ipynb>)
+**Notebook:** [`Alpha - FINPRO/Notebook/Alpha - FINPRO - Analisis Ulasan Buruk dan Keterlambatan Olist.ipynb`](<Alpha - FINPRO/Notebook/Alpha - FINPRO - Analisis Ulasan Buruk dan Keterlambatan Olist.ipynb>)
 
 ---
 
@@ -77,7 +77,7 @@ Skor ulasan hanya menunjukkan **bahwa** pelanggan kecewa, tetapi tidak menjelask
    - peta rute prioritas (garis state → state di atas batas wilayah IBGE) dan perhitungan kebutuhan kapasitas saat lonjakan;
    - median untuk data yang miring, dan perbandingan ulang pada kelompok yang lebih sempit (misalnya hanya pesanan 1 barang yang tepat waktu);
    - batas minimum jumlah pesanan sebelum rute dan seller diberi peringkat;
-   - isi komentar ulasan buruk diberi label (keluhan utama, posisi pesanan, pihak yang disalahkan) oleh **Claude** di luar notebook (`Notebook/llm_labeling/`), lalu dianalisis di bagian 5.1.8;
+   - isi komentar ulasan buruk diberi label (keluhan utama, posisi pesanan, pihak yang disalahkan) oleh **Claude** di luar notebook (`Alpha - FINPRO/Notebook/llm_labeling/`), lalu dianalisis di bagian 5.1.8;
    - rute dianalisis per state, karena rute per kota terlalu tersebar (5.2.4).
 6. **Prioritas & Estimasi Dampak** — skenario berbasis data historis, termasuk batas atas dan hubungan antar-metrik.
 7. **Kesimpulan & Rekomendasi** — termasuk trade-off, urutan pelaksanaan, keterbatasan, dan future work.
@@ -145,20 +145,20 @@ Skor ulasan hanya menunjukkan **bahwa** pelanggan kecewa, tetapi tidak menjelask
 
 ```
 ├── README.md
-├── Notebook/
-│   ├── Alpha - FINPRO - Analisis Ulasan Buruk dan Keterlambatan Olist.ipynb   # notebook analisis utama
-│   └── llm_labeling/                                                            # labeling isi ulasan dengan Claude: script, codebook, konteks, contoh QA
-├── Dataset/
-│   ├── olist_*.csv, product_category_name_translation.csv                      # 9 file data mentah dari Kaggle
-│   ├── review_labels_llm.csv                                                    # label isi ulasan buruk dari Claude (dibaca notebook di 5.1.8)
-│   ├── brazil_uf_ibge.geojson                                                   # batas wilayah state dari IBGE (peta rute di 5.2.4)
-│   └── olist_order_level.csv                                                    # TIDAK di-upload; dibuat oleh notebook (langkah 4.8), sumber dashboard
-└── PPT/                                                                         # slide presentasi
+└── Alpha - FINPRO/
+    ├── Notebook/
+    │   ├── Alpha - FINPRO - Analisis Ulasan Buruk dan Keterlambatan Olist.ipynb   # notebook analisis utama
+    │   └── llm_labeling/                                                            # labeling isi ulasan dengan Claude: script, codebook, konteks, contoh QA
+    └── Dataset/
+        ├── olist_*.csv, product_category_name_translation.csv                      # 9 file data mentah dari Kaggle
+        ├── review_labels_llm.csv                                                    # label isi ulasan buruk dari Claude (dibaca notebook di 5.1.8)
+        ├── brazil_uf_ibge.geojson                                                   # batas wilayah state dari IBGE (peta rute di 5.2.4)
+        └── olist_order_level.csv                                                    # TIDAK di-upload; dibuat oleh notebook (langkah 4.8), sumber dashboard
 ```
 
 > Notebook hanya mengekspor **satu file**, yaitu `olist_order_level.csv`. File ini dipakai sebagai sumber data dashboard karena ketiga metrik dihitung per pesanan.
 >
-> Seluruh 9 file data mentah Olist sudah ada di folder `Dataset/`, termasuk `olist_geolocation_dataset.csv` (±61 MB). `olist_order_level.csv` (±71 MB) **tidak di-upload** (ada di `.gitignore`) karena dibuat ulang otomatis saat notebook dijalankan.
+> Seluruh 9 file data mentah Olist sudah ada di folder `Alpha - FINPRO/Dataset/`, termasuk `olist_geolocation_dataset.csv` (±61 MB). `olist_order_level.csv` (±71 MB) **tidak di-upload** (ada di `.gitignore`) karena dibuat ulang otomatis saat notebook dijalankan.
 
 ## Cara Menjalankan
 
@@ -167,8 +167,8 @@ Skor ulasan hanya menunjukkan **bahwa** pelanggan kecewa, tetapi tidak menjelask
    pip install pandas numpy matplotlib seaborn scipy statsmodels
    ```
    Dijalankan dengan Python 3.13, pandas 3.0, NumPy 2.5, Matplotlib 3.11, seaborn 0.13, SciPy 1.18, dan statsmodels 0.14.
-2. Pastikan folder `Dataset/` berisi 9 file CSV Olist, `review_labels_llm.csv`, dan `brazil_uf_ibge.geojson`. File label tidak perlu dibuat ulang. Jika ingin membuat ulang, lihat petunjuk di `Notebook/llm_labeling/run_claude_code.py` (membutuhkan Claude Code).
-3. Buka notebook di folder `Notebook/`, lalu jalankan semua cell (**Run All**). Notebook membaca data dari `../Dataset/`. Jika dijalankan di Google Colab, ubah variabel `DATA_PATH` sesuai lokasi file.
+2. Pastikan folder `Alpha - FINPRO/Dataset/` berisi 9 file CSV Olist, `review_labels_llm.csv`, dan `brazil_uf_ibge.geojson`. File label tidak perlu dibuat ulang. Jika ingin membuat ulang, lihat petunjuk di `Alpha - FINPRO/Notebook/llm_labeling/run_claude_code.py` (membutuhkan Claude Code).
+3. Buka notebook di folder `Alpha - FINPRO/Notebook/`, lalu jalankan semua cell (**Run All**). Notebook membaca data dari `../Dataset/`. Jika dijalankan di Google Colab, ubah variabel `DATA_PATH` sesuai lokasi file.
 
 ## Keterbatasan
 
@@ -190,7 +190,7 @@ Skor ulasan hanya menunjukkan **bahwa** pelanggan kecewa, tetapi tidak menjelask
 
 - Olist & André Sionek. *Brazilian E-Commerce Public Dataset by Olist*. Kaggle. https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
 - Rentang kode pos (CEP) per state: Correios, *Tudo sobre CEP*, https://www.correios.com.br/enviar/precisa-de-ajuda/tudo-sobre-cep ; Remessa Online, *Código postal*, https://www.remessaonline.com.br/blog/codigo-postal-2/
-- Batas wilayah state untuk peta rute: IBGE, *API de Malhas Geográficas* (malha UF, kualitas minimum), https://servicodados.ibge.gov.br/api/docs/malhas?versao=3 (disimpan sebagai `Dataset/brazil_uf_ibge.geojson`)
+- Batas wilayah state untuk peta rute: IBGE, *API de Malhas Geográficas* (malha UF, kualitas minimum), https://servicodados.ibge.gov.br/api/docs/malhas?versao=3 (disimpan sebagai `Alpha - FINPRO/Dataset/brazil_uf_ibge.geojson`)
 - Pembagian 5 region resmi Brasil: IBGE, *Divisões regionais do Brasil*, https://agenciadenoticias.ibge.gov.br/pt/agencia-noticias/19383-dividir-para-conhecer-as-diversas-divisoes-regionais-do-brasil.html
 - Mogok pegawai Correios 12–13 Maret 2018: Brasil de Fato, https://www.brasildefato.com.br/2018/03/12/funcionarios-dos-correios-entram-em-greve-nesta-segunda-feira-12/ ; Banda B, https://www.bandab.com.br/nacional/funcionarios-dos-correios-encerram-greve-apos-derrota-na-justica-sobre-planos-de-saude/amp/
 - Batas pembayaran gaji bulanan (hari kerja ke-5 bulan berikutnya): Brasil, *Consolidação das Leis do Trabalho* (Decreto-Lei 5.452/1943), Pasal 459 §1, https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm
