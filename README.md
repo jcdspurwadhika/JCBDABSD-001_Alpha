@@ -13,7 +13,7 @@ Sekitar **1 dari 7 pesanan Olist berakhir dengan ulasan buruk** (bintang 1–2).
 
 **Notebook:** [`Alpha - FINPRO/Notebook/Alpha - FINPRO - Analisis Ulasan Buruk dan Keterlambatan Olist.ipynb`](<Alpha - FINPRO/Notebook/Alpha - FINPRO - Analisis Ulasan Buruk dan Keterlambatan Olist.ipynb>)
 
----
+----
 
 ## Latar Belakang
 
