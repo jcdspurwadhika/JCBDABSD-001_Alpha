@@ -201,4 +201,4 @@ Skor ulasan hanya menunjukkan **bahwa** pelanggan kecewa, tetapi tidak menjelask
 - Sinnott, R. W. (1984). *Virtues of the Haversine*. Sky and Telescope, 68(2), 159.
 - Materi Module 1–3 Purwadhika JC Business & Data Analyst.
 
-**Pernyataan penggunaan AI:** Claude (Anthropic) dipakai untuk memberi label isi komentar ulasan buruk. Akurasinya sudah dicek manual oleh tim pada 150 sampel acak: Pain Points 94,0%, Review Stage 94,7%, Blame Target 79,3%.
+**Pernyataan penggunaan AI:** Claude (Anthropic) dipakai untuk memberi label isi komentar ulasan buruk. Akurasinya sudah dicek manual oleh tim pada 150 sampel acak: Pain Points 94,0%, Review Stage 94,7%, Blame Target 79,3%. 
